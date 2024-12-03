@@ -1,0 +1,11 @@
+com\interaxa\services\HistoricoConsumo.class
+com\interaxa\servlets\MeuServlet.class
+com\interaxa\servlets\DadosInstalacaoServlet.class
+com\interaxa\model\IdentificacaoParceiroDTO.class
+com\interaxa\main\Teste.class
+com\interaxa\services\ObterDadosInstalacao.class
+com\interaxa\servlets\HistoricoConsumoServlet.class
+com\interaxa\model\HistoricoConsumoDTO.class
+com\interaxa\services\IdentificacaoParceiro.class
+com\interaxa\servlets\IdentificacaoServlet.class
+com\interaxa\model\ObterDadosInstalacaoDTO.class

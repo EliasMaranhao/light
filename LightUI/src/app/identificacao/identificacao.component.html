@@ -1,0 +1,166 @@
+<div class="mt-3">
+    <h2>Identificação Parceiro</h2>
+
+    <form [formGroup]="formulario" (ngSubmit)="enviar()">
+        <div class="row mb-3">
+            <div col-12>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="flexRadioDefault1" value="homologacao" checked formControlName="destino">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Homologação
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="flexRadioDefault2" value="producao" formControlName="destino">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Produção
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div col-12>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipoIdentificacao" id="tipoIdentificacao1" value="telefone" checked formControlName="tipoIdentificacao">
+                    <label class="form-check-label" for="tipoIdentificacao1">
+                        Telefone
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipoIdentificacao" id="tipoIdentificacao2" value="instalacao" formControlName="tipoIdentificacao">
+                    <label class="form-check-label" for="tipoIdentificacao2">
+                        Instalação
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipoIdentificacao" id="tipoIdentificacao3" value="cpf" formControlName="tipoIdentificacao">
+                    <label class="form-check-label" for="tipoIdentificacao3">
+                        Cpf
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipoIdentificacao" id="tipoIdentificacao4" value="cnpj" formControlName="tipoIdentificacao">
+                    <label class="form-check-label" for="tipoIdentificacao4">
+                        Cnpj
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-4">
+                <label for="identificador" class="form-label">Identificador</label>
+                <input type="text" id="identificador" class="form-control form-control-sm" name="identificador" required formControlName="identificador">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-sm">FIGHT</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h4>{{identificacao?.nome}}</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Parceiro</th>
+                        <th>Mensagem</th>
+                        <th>Qtde Instalações</th>
+                        <th>Cpf_Cnpj</th>
+                        <th>Tipo_Cliente</th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr>
+                        <td>{{identificacao?.partner}}</td>
+                        <td>{{identificacao?.message}}</td>
+                        <td>{{identificacao?.qinst}}</td>
+                        <td>{{identificacao?.cpf_cnpj}}</td>
+                        <td>{{identificacao?.tipoCliente}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="card">
+        
+        <div class="card-header bg-dark text-white">
+            <h4>INSTALAÇÕES</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Celular</th>
+                        <th>Vertrag</th>
+                        <th>Email</th>
+                        <th>Cep</th>
+                        <th>Data ligação</th>
+                        <th>Anlage</th>
+                        <th>Vkont</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <tr *ngFor="let instal of identificacao?.instalacoes">
+                        <td>{{instal.celular}}</td>
+                        <td>{{instal.vertrag}}</td>
+                        <td>{{instal.email}}</td>
+                        <td>{{instal.cep}}</td>
+                        <td>{{instal.dt_ligacao}}</td>
+                        <td>{{instal.anlage}}</td>
+                        <td>{{instal.vkont}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h4>NOTAS</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>QMDAT</th>
+                        <th>FECOD</th>
+                        <th>STATUS</th>
+                        <th>ANLAGE</th>
+                        <th>QMART</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let nota of identificacao?.notas">
+                        <td>{{nota.qmdat}}</td>
+                        <td>{{nota.fecod}}</td>
+                        <td>{{nota.status}}</td>
+                        <td>{{nota.anlage}}</td>
+                        <td>{{nota.qmart}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

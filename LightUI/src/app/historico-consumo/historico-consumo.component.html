@@ -1,0 +1,79 @@
+<div class="mt-3">
+    <h2>Histórico de Consumo</h2>
+
+    <form (ngSubmit)="enviar()" [formGroup]="formulario">
+        <div class="row mb-3">
+            <div col-12>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="obterDadosInstalacao1" value="homologacao" checked formControlName="destino">
+                    <label class="form-check-label" for="obterDadosInstalacao1">
+                        Homologação
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="obterDadosInstalacao2" value="producao" formControlName="destino">
+                    <label class="form-check-label" for="obterDadosInstalacao2">
+                        Produção
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="anlage" class="form-label">Data início</label>
+                <input type="date" id="anlage" class="form-control form-control-sm" name="data_ini" formControlName="data_ini">
+            </div>
+
+            <div class="col-3">
+                <label for="vertrag" class="form-label">Data fim</label>
+                <input type="date" id="vertrag" class="form-control form-control-sm" name="data_fim" formControlName="data_fim">
+            </div>
+
+            <div class="col-3">
+                <label for="vkont" class="form-label">Vertrag</label>
+                <input type="text" id="vkont" class="form-control form-control-sm" name="vertrag" formControlName="vertrag">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-sm" [disabled]="formulario.invalid">Histórico de consumo</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+
+    <div class="alert alert-warning" role="alert">
+        <strong>{{message}}</strong>
+    </div>
+
+    <div class="card" *ngIf="historicoConsumo">
+        <div class="card-header">
+            <h4>CONSUMOS</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>VERTRAG</th>
+                        <th>MES_REF</th>
+                        <th>CONSUMO</th>
+                        <th>VAL_FATURA</th>
+                        <th>BANDEIRA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let consumo of historicoConsumo?.consumos">
+                        <td>{{consumo.vertrag}}</td>
+                        <td>{{consumo.mes_ref}}</td>
+                        <td>{{consumo.consumo}}</td>
+                        <td>{{consumo.val_fatura}}</td>
+                        <td>{{consumo.bandeira}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

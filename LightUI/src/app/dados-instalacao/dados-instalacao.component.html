@@ -1,0 +1,142 @@
+<div class="mt-3">
+    <h2>Dados Instalação</h2>
+
+    <form [formGroup]="formulario" (ngSubmit)="enviar()">
+        <div class="row mb-3">
+            <div col-12>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="obterDadosInstalacao" id="obterDadosInstalacao1" value="homologacao" checked formControlName="destino">
+                    <label class="form-check-label" for="obterDadosInstalacao1">
+                        Homologação
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="obterDadosInstalacao" id="obterDadosInstalacao2" value="producao" formControlName="destino">
+                    <label class="form-check-label" for="obterDadosInstalacao2">
+                        Produção
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="anlage" class="form-label">Anlage</label>
+                <input type="text" id="anlage" class="form-control form-control-sm" name="anlage" formControlName="anlage">
+            </div>
+
+            <div class="col-3">
+                <label for="vertrag" class="form-label">Vertrag</label>
+                <input type="text" id="vertrag" class="form-control form-control-sm" name="vertrag" formControlName="vertrag">
+            </div>
+
+            <div class="col-3">
+                <label for="vkont" class="form-label">Vkont</label>
+                <input type="text" id="vkont" class="form-control form-control-sm" name="vkont" formControlName="vkont">
+            </div>
+
+            <div class="col-3">
+                <label for="partner" class="form-label">Partner</label>
+                <input type="text" id="partner" class="form-control form-control-sm" name="partner" formControlName="partner">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-sm" [disabled]="formulario.invalid">Obter Dados Instalação</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="alert alert-danger" *ngIf="dadosInstalacao?.message != ''">
+        <span>{{dadosInstalacao?.message}}</span>
+    </div>
+
+    <div id="cliente" class="card" *ngIf="dadosInstalacao">
+        <div class="card-header">
+            <h4>INSTALAÇÃO</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Data próxima leitura</th>
+                        <th>Tipo ligação</th>
+                        <th>Fraude</th>
+                        <th>Valor faturas</th>
+                        <th>Débito automático</th>
+                        <th>Qtde faturas</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>{{dadosInstalacao.dataProximaLeitura}}</td>
+                        <td>{{dadosInstalacao.tipoLigacao}}</td>
+                        <td>{{dadosInstalacao.fraude}}</td>
+                        <td>{{dadosInstalacao.valorFatura}}</td>
+                        <td>{{dadosInstalacao.debitoAutomatico}}</td>
+                        <td>{{dadosInstalacao.quantidadeFaturas}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<br>
+    <div id="suspensoes" class="card" *ngIf="dadosInstalacao">
+        <div class="card-header">
+            <h4>SUSPENSÃO</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>DISCNO</th>
+                        <th>STATUS</th>
+                        <th>MOTIVO CORTE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{dadosInstalacao.suspensao?.discno}}</td>
+                        <td>{{dadosInstalacao.suspensao?.status}}</td>
+                        <td>{{dadosInstalacao.suspensao?.motivoCorte}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<br>
+    <div id="faturas" class="card" *ngIf="dadosInstalacao">
+        <div class="card-header">
+            <h4>FATURAS</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>BILLING PERIOD</th>
+                        <th>BETRW</th>
+                        <th>DATA VENCIMENTO</th>
+                        <th>TAG RETIDA</th>
+                        <th>INVOICE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fatura of dadosInstalacao.faturas">
+                        <td>{{fatura.periodoFatura}}</td>
+                        <td>{{fatura.betrw}}</td>
+                        <td>{{fatura.dataVencimento}}</td>
+                        <td>{{fatura.tagRetida}}</td>
+                        <td>{{fatura.invoice}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
