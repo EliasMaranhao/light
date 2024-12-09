@@ -1,0 +1,90 @@
+<div class="mt-3">
+    <h2>Pagamento em processamento</h2>
+
+    <form (ngSubmit)="enviar()" [formGroup]="formulario">
+        <div class="row mb-3">
+            <div col-12>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="pagamentoProcessamento1" value="homologacao" checked formControlName="destino">
+                    <label class="form-check-label" for="obterDadosInstalacao1">
+                        Homologação
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="pagamentoProcessamento2" value="producao" formControlName="destino">
+                    <label class="form-check-label" for="obterDadosInstalacao2">
+                        Produção
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="parceiro" class="form-label">Parceiro</label>
+                <input type="text" id="parceiro" class="form-control form-control-sm" name="parceiro" formControlName="parceiro">
+            </div>
+
+            <div class="col-3">
+                <label for="tipo" class="form-label">Tipo</label>
+                <input type="text" id="vertrag" class="form-control form-control-sm" name="tipo" formControlName="tipo">
+            </div>
+
+            <div class="col-3">
+                <label for="contaContrato" class="form-label">Conta contrato</label>
+                <input type="text" id="contaContrato" class="form-control form-control-sm" name="contaContrato" formControlName="contaContrato">
+            </div>
+
+            <div class="col-3">
+                <label for="contrato" class="form-label">Contrato</label>
+                <input type="text" id="contrato" class="form-control form-control-sm" name="contrato" formControlName="contrato">
+            </div>
+
+            <div class="col-3">
+                <label for="instalacao" class="form-label">Instalação</label>
+                <input type="text" id="instalacao" class="form-control form-control-sm" name="instalacao" formControlName="instalacao">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-sm" [disabled]="formulario.invalid">FIGHT</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="alert alert-warning" role="alert">
+        <strong>{{message}}</strong>
+    </div>
+
+    <div class="card" *ngIf="pagamentoProcessamento">
+        <div class="card-header">
+            <h4>FATURAS</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>PARCEIRO</th>
+                        <th>INSTALAÇÃO</th>
+                        <th>ZIMPRESS</th>
+                        <th>BILLING_PERIOD</th>
+                        <th>DATA PAGAMENTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fatura of pagamentoProcessamento.faturas">
+                        <td>{{fatura.parceiro}}</td>
+                        <td>{{fatura.instalacao}}</td>
+                        <td>{{fatura.zimpress}}</td>
+                        <td>{{fatura.billing_period}}</td>
+                        <td>{{fatura.data_pagamento}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

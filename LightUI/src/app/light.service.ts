@@ -9,6 +9,7 @@ export class LightService {
   url_identificacao =    'http://172.22.52.65:8080/lightapi/identificacaoParceiro';
   url_dadosInstalacao =  'http://172.22.52.65:8080/lightapi/dadosInstalacao';
   url_historicoConsumo = 'http://172.22.52.65:8080/lightapi/historicoConsumo';
+  url_pagamentoProcessamento = 'http://172.22.52.65:8080/lightapi/pagamentoEmProcessamento';
 
   constructor(private http:HttpClient) { }
 
@@ -22,5 +23,9 @@ export class LightService {
 
   enviarRequestHistoricoConsumo(request: string): any{
     return this.http.post<string>(this.url_historicoConsumo, request);
+  }
+
+  enviarRequestPagamentoProcessamento(request: string): any{
+    return this.http.post<string>(this.url_pagamentoProcessamento, request);
   }
 }

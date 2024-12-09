@@ -4,4 +4,7 @@ export class Utils {
     public static uriIdentificaParceiro = 'Z_MI_VERIF_PN_INSTAL_OUTBD_SYNC&interfaceNamespace=http://www.light.com.br/ura/verif_pn_instal';
     public static uriObterDadosInstalacao = 'Z_MI_DADOS_INSTALACAO_OUTBD_SYNC&interfaceNamespace=http://www.light.com.br/ura/dados_instalacao';
     public static uriHistoricoConsumo = 'Z_MI_HISTORICO_CONSUMO_OUTBD_SYNC&interfaceNamespace=http://www.light.com.br/ura/historico_consumo';
+    
+    public static uriPagamentoProcessamentoProd = 'https://sspop.light.com.br/RESTAdapter/agv/090/PagEmPro';
+    public static uriPagamentoProcessamentoHmlg = 'https://sspoq.light.com.br/RESTAdapter/agv/090/PagEmPro';
 }

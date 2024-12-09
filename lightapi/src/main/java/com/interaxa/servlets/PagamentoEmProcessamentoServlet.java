@@ -31,8 +31,8 @@ public class PagamentoEmProcessamentoServlet extends HttpServlet{
     }
 
     private JSONObject executePagamentoEmProcessamento(PagamentoEmProcessamentoDTO pagamentoEmProcessamentoDTO){
-        String clienteId = "WS_USER_URVV";
-        String clientSecret = "homologacao".equals(pagamentoEmProcessamentoDTO.getDestino()) ? "P@ssw0rd" : "P@ss21182222";
+        String clienteId = "WS_USER_OUTS";
+        String clientSecret = "homologacao".equals(pagamentoEmProcessamentoDTO.getDestino()) ? "P@ssw0rd" : "P@ss15212019";
         String urlUra = pagamentoEmProcessamentoDTO.getUrl();
         String parceito = pagamentoEmProcessamentoDTO.getParceiro();
         String tipo = pagamentoEmProcessamentoDTO.getTipo();

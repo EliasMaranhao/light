@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PagamentoEmProcessamento {
-    	public static JSONObject executePagamentoEmAndamento (String clientId, String clientSecret, String parceiro, String tipo, String conta_contrato, String contrato, String instalacao, String timeoutUra, String urlUra) throws JSONException {
+    public static JSONObject executePagamentoEmAndamento (String clientId, String clientSecret, String parceiro, String tipo, String conta_contrato, String contrato, String instalacao, String timeoutUra, String urlUra) throws JSONException {
 		JSONObject retorno = null;
 		JSONObject request = new JSONObject();
 		
