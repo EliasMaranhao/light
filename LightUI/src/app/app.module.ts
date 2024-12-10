@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DadosInstalacaoComponent } from './dados-instalacao/dados-instalacao.component';
 import { HistoricoConsumoComponent } from './historico-consumo/historico-consumo.component';
 import { PagamentoAndamentoComponent } from './pagamento-andamento/pagamento-andamento.component';
+import { DebitosCpfcnpjComponent } from './debitos-cpfcnpj/debitos-cpfcnpj.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PagamentoAndamentoComponent } from './pagamento-andamento/pagamento-and
     IdentificacaoComponent,
     DadosInstalacaoComponent,
     HistoricoConsumoComponent,
-    PagamentoAndamentoComponent
+    PagamentoAndamentoComponent,
+    DebitosCpfcnpjComponent
   ],
   imports: [
     BrowserModule,

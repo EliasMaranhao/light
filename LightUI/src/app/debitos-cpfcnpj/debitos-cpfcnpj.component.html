@@ -1,0 +1,75 @@
+<div class="mt-3">
+    <h2>Débitos por cpf ou cnpj</h2>
+
+    <form (ngSubmit)="enviar()" [formGroup]="formulario">
+        <div class="row mb-3">
+            <div col-12>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="debitos1" value="homologacao" checked formControlName="destino">
+                    <label class="form-check-label" for="debitos1">
+                        Homologação
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="destino" id="debitos2" value="producao" formControlName="destino">
+                    <label class="form-check-label" for="debitos2">
+                        Produção
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-3">
+                <label for="cpf" class="form-label">Cpf</label>
+                <input type="text" id="cpf" class="form-control form-control-sm" name="cpf" formControlName="cpf">
+            </div>
+
+            <div class="col-3">
+                <label for="cnpj" class="form-label">Cnpj</label>
+                <input type="text" id="cnpj" class="form-control form-control-sm" name="cnpj" formControlName="cnpj">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-sm" [disabled]="formulario.invalid">FIGHT</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="alert alert-warning" role="alert">
+        <strong>{{message}}</strong>
+    </div>
+
+    <div class="card" *ngIf="debitosCpfCnpj">
+        <div class="card-header">
+            <h4>DÉBITOS POR CPF OU CNPJ</h4>
+        </div>
+
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>BETRW</th>
+                        <th>BILLING_PERIOD</th>
+                        <th>ANLAGE</th>
+                        <th>ZIMPRESS</th>
+                        <th>OPBEL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let fatura of debitosCpfCnpj.detalhes_debitos">
+                        <td>{{fatura.betrw}}</td>
+                        <td>{{fatura.billing_period}}</td>
+                        <td>{{fatura.anlage}}</td>
+                        <td>{{fatura.zimpress}}</td>
+                        <td>{{fatura.opbel}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+com\interaxa\servlets\DebitosPorCpfCnpjServlet.class
+com\interaxa\model\IdentificacaoParceiroDTO.class
+com\interaxa\services\ObterDadosInstalacao.class
+com\interaxa\services\PagamentoEmProcessamento.class
+com\interaxa\servlets\PagamentoEmProcessamentoServlet.class
+com\interaxa\model\PagamentoEmProcessamentoDTO.class
+com\interaxa\model\DebitosPorCpfCnpjDTO.class
+com\interaxa\services\HistoricoConsumo.class
+com\interaxa\servlets\MeuServlet.class
+com\interaxa\servlets\DadosInstalacaoServlet.class
+com\interaxa\services\DebitosPorCpfCnpj.class
+com\interaxa\main\Teste.class
+com\interaxa\servlets\HistoricoConsumoServlet.class
+com\interaxa\model\HistoricoConsumoDTO.class
+com\interaxa\services\IdentificacaoParceiro.class
+com\interaxa\servlets\IdentificacaoServlet.class
+com\interaxa\model\ObterDadosInstalacaoDTO.class

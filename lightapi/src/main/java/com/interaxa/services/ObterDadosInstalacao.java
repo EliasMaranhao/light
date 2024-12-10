@@ -14,7 +14,7 @@ import org.json.XML;
 
 public class ObterDadosInstalacao {
     
-    	public static JSONObject executeObterDadosInstalacao (String clientIdUra, String clientSecretUra, String x_anlage, String x_vertrag,String x_vkont, String x_partner,String x_flag_consumos, String urlUra, String timeoutUra) throws JSONException {
+    public static JSONObject executeObterDadosInstalacao (String clientIdUra, String clientSecretUra, String x_anlage, String x_vertrag,String x_vkont, String x_partner,String x_flag_consumos, String urlUra, String timeoutUra) throws JSONException {
 		JSONObject retorno = null;
 		
 		try {
